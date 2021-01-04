@@ -5,7 +5,6 @@ def findFinalPositionPart1(filename: str) -> dict[str, int]:
     current_direction = "E"
     with open(filename, "r") as fp:
         while True:
-            # print(positions)
             line = fp.readline()
             if not line:
                 break
@@ -27,7 +26,6 @@ def findFinalPositionPart2(filename: str) -> dict[str, int]:
     waypt_positions = {'ew': 10, 'ns': 1}
     with open(filename, "r") as fp:
         while True:
-            # print(positions)
             line = fp.readline()
             if not line:
                 break
@@ -69,26 +67,6 @@ def rotateWaypointRight(positions: dict[str, int], degrees: int) -> None:
         ns = positions["ns"]
         positions["ew"] = ns
         positions["ns"] = -1 * ew
-        """
-        if ew == 0:
-            positions["ew"] = ns
-            positions["ns"] = 0
-        elif ns == 0:
-            positions["ew"] = 0
-            positions["ns"] = ew
-        elif ew > 0 and ns > 0: # Quadrant I
-            positions["ew"] = ns
-            positions["ns"] = -1 * ew
-        elif ew > 0 and ns < 0: # Quadrant IV
-            positions["ew"] = ns
-            positions["ns"] = -1 * ew
-        elif ew < 0 and ns < 0: # Quadrant III
-            positions["ew"] = ns
-            positions["ns"] = -1 * ew
-        elif ew > 0 and ns > 0: # Quadrant II
-            positions["ew"] = ns
-            positions["ns"] = -1 * ew
-        """
         degrees -= 90
 
 def rotateWaypointLeft(positions: dict[str, int], degrees: int) -> None:
